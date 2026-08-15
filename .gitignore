@@ -1,0 +1,7 @@
+.env
+data/
+
+engine/build/
+engine/.cache/
+.claude/settings.local.json
+
