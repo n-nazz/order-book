@@ -3,5 +3,6 @@ data/
 
 engine/build/
 engine/.cache/
+engine/vendor/
 .claude/settings.local.json
 

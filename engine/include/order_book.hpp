@@ -1,6 +1,7 @@
 #pragma once
 
 #include "event.hpp"
+#include "record.hpp"
 #include <cstdint>
 #include <list>
 #include <map>
@@ -37,6 +38,8 @@ public:
   void send_event(const MarketEvent &e);
   void debug_print();
   // requests for data about the book to follow
+  databento::BidAskPair bid_ask_pair(size_t level);
+
 private:
   std::map<int64_t, PriceLevel> bids;
   std::map<int64_t, PriceLevel> asks;
