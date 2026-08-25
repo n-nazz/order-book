@@ -40,7 +40,9 @@ void dump(const db::Mbp10Msg &mbp10) {
  * way, we ensure that the sequence of changes to the top 10 that the book
  * experiences is an exact match for what the mbp10 data describes. */
 int main() {
-  OrderBook book;
+  // ES front-month, 2021-11-02 daily high/low from Databento (GLBX.MDP3,
+  // instrument 8858), fixed-point x1e9; tick size $0.25
+  OrderBook book(4593250000000, 4627000000000, 250000000);
   db::DbnFileStore mbp10{MBP10_PATH};
   db::DbnFileStore mbo{MBO_PATH};
 

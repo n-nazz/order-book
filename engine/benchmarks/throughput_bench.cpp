@@ -39,7 +39,9 @@ int main(int argc, char **argv) {
   }
   auto end_read = std::chrono::high_resolution_clock::now();
 
-  OrderBook book;
+  // ES front-month, 2021-11-02 daily high/low from Databento (GLBX.MDP3,
+  // instrument 8858), fixed-point x1e9; tick size $0.25
+  OrderBook book(4593250000000, 4627000000000, 250000000);
   auto start_process = std::chrono::high_resolution_clock::now();
   for (const auto &e : events) {
     book.send_event(e);
