@@ -1,5 +1,9 @@
 CXX := g++
-CXXFLAGS := -std=c++20 -Wall -Wextra -Iinclude -Ilib -MMD -MP
+ifdef DEBUG
+CXXFLAGS := -std=c++20 -O0 -g -march=native -Wall -Wextra -Iinclude -Ilib -MMD -MP
+else
+CXXFLAGS := -std=c++20 -O3 -march=native -DNDEBUG -Wall -Wextra -Iinclude -Ilib -MMD -MP
+endif
 LDFLAGS := -B/usr/bin
 
 SRCS := $(filter-out src/validate.cpp,$(wildcard src/*.cpp))
